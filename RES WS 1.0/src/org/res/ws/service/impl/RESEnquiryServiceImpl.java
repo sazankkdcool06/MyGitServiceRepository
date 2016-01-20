@@ -40,8 +40,8 @@ public class RESEnquiryServiceImpl implements RESEnquiryService{
 		if(appId != 101 || !passwd.equals("Sanjali")){
 			return Response.noContent().entity("AppId & Password authentication failed").build();
 		}
-		System.out.println(this.enqProcessor.fetchRESEnquiryDetails());
-		return Response.ok("Success from Impl : "+this.enqProcessor.fetchRESEnquiryDetails(), MediaType.TEXT_PLAIN).build();
+		System.out.println(this.enqProcessor.fetchRESEnquiryDetails(uid));
+		return Response.ok(this.enqProcessor.fetchRESEnquiryDetails(uid), MediaType.APPLICATION_JSON).build();
 	}
 	
 }

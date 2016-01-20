@@ -13,7 +13,7 @@ public interface RESEnquiryService {
 	
 	@GET
 	@Path("ENQUIRY/{userID}")
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response getDetails(@PathParam("userID") String uid,
 							   @HeaderParam("appID") long appId,
 							   @HeaderParam("password") String passwd);

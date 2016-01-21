@@ -28,11 +28,11 @@ import org.springframework.stereotype.Repository;
 public class RESEnquiryDAO {
 	
 //	@Resource(name="mongoTemplate")
-//	@Autowired
-//	private MongoOperations operation;
+	@Autowired(required=true)
+	private MongoOperations operation;
 	
-	@Autowired
-	private MongoTemplate mongoTemplate;
+//	@Autowired
+//	private MongoTemplate mongoTemplate;
 	
 	public RESEnquiryDTO getRESEnquiryDetails(String uid){
 		RESEnquiryDTO enquiryResults = null;
@@ -50,9 +50,10 @@ public class RESEnquiryDAO {
 //		             new AnnotationConfigApplicationContext(SpringMongoConfig.class);
 //			
 //			operation = ctx.getBean("mongoTemplate",MongoOperations.class);
-			Query searchQuery  = new Query(Criteria.where("name").is("Sasanka"));
+			Query searchQuery  = new Query(Criteria.where("name").is(uid));
 			
-			enquiryMongoResults = mongoTemplate.findOne(searchQuery, RESEnquiryDTO.class);
+			System.out.println(searchQuery);
+			enquiryMongoResults = operation.findOne(searchQuery, RESEnquiryDTO.class);
 			System.out.println(enquiryMongoResults.getAddress1());
 			System.out.println(enquiryMongoResults.getCity());
 			
@@ -68,7 +69,7 @@ public class RESEnquiryDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return enquiryResults;
+		return enquiryMongoResults;
 	}
 
 }

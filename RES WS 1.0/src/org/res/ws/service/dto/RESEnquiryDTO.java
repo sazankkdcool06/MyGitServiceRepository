@@ -5,9 +5,15 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 
 @XmlRootElement
+@Document(collection = "address")
 public class RESEnquiryDTO {
+	@Id
+	private String id;
 
 	private String name;
 	private String address1;

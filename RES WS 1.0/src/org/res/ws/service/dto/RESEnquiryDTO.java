@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -26,7 +27,7 @@ public class RESEnquiryDTO {
 	public String getName() {
 		return name;
 	}
-
+	@XmlTransient
 	public void setName(String name) {
 		this.name = name;
 	}
